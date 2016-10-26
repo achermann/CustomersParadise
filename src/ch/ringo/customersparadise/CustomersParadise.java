@@ -8,6 +8,7 @@ package ch.ringo.customersparadise;
 import ch.ringo.customersparadise.domain.Category;
 import ch.ringo.customersparadise.domain.Customer;
 import ch.ringo.customersparadise.domain.Merchant;
+import ch.ringo.customersparadise.domain.Transaction;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -34,12 +35,19 @@ public class CustomersParadise {
         Merchant merchant = new Merchant();
         merchant.setName("Loeb");
         merchant.setCategory(Category.CAT1);
+        
+        Transaction transaction = new Transaction();
+        transaction.setCustomer(1L);
+        transaction.setMerchant(1L);
+        transaction.setAmount(25.25);
 
         CustomersParadise paradise = new CustomersParadise();
 //        for (int i = 0; i < customer.length; i++) {
 //            paradise.persist(customer[i]);
 //        }
+        paradise.persist(customer[1]);
         paradise.persist(merchant);
+        paradise.persist(transaction);
     }
 
     public void persist(Object object) {
